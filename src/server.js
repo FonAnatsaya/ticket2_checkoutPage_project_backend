@@ -3,6 +3,7 @@ const cors = require("cors");
 const webServer = express();
 const port = 8000;
 const host = "127.0.0.1";
+const { ticketListsData, discountsData } = require("../src/constantData");
 
 webServer.use(express.json());
 webServer.use(cors());
@@ -12,59 +13,6 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   method: "GET,POST",
 };
-
-const ticketListsData = [
-  {
-    id: 1,
-    title: "Siam Amazing Park",
-    img: "siam.jpeg",
-    price: 1000,
-    descriptionEng: "Siam Amazing Park Everyday is Amazing",
-    descriptionThai: "สยามอะเมซิ่งเป็นอาณาจักรแห่งความสุขสนุกไม่รู้ลืม...",
-  },
-  {
-    id: 2,
-    title: "Safari World",
-    img: "siam.jpeg",
-    price: 1200,
-    descriptionEng: "Safari World Everyday is Amazing",
-    descriptionThai: "ซาฟารีเวิร์ลเป็นอาณาจักรแห่งความสุขสนุกไม่รู้ลืม...",
-  },
-  {
-    id: 3,
-    title: "Dream World",
-    img: "siam.jpeg",
-    price: 1500,
-    descriptionEng: "Dream World Everyday is Amazing",
-    descriptionThai: "ดรีมเวิร์ลเป็นอาณาจักรแห่งความสุขสนุกไม่รู้ลืม...",
-  },
-  {
-    id: 4,
-    title: "Sea Life Bangkok Ocean World",
-    img: "siam.jpeg",
-    price: 2000,
-    descriptionEng: "Sea Life Bangkok Ocean World Everyday is Amazing",
-    descriptionThai: "ซีไลฟ์กรุงเทพเป็นอาณาจักรแห่งความสุขสนุกไม่รู้ลืม...",
-  },
-];
-
-const discountsData = [
-  {
-    code: "10%Off",
-    discount: 10,
-    type: "percentage",
-  },
-  {
-    code: "200OFF",
-    discount: 200,
-    type: "amount",
-  },
-  {
-    code: "50%Off",
-    discount: 50,
-    type: "percentage",
-  },
-];
 
 webServer.get("/ticketLists", (_, res) => {
   try {
