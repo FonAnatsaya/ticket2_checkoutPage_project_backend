@@ -3,7 +3,7 @@ const cors = require("cors");
 const webServer = express();
 const port = 8000;
 const host = "127.0.0.1";
-const { ticketListsData, discountsData } = require("../src/constantData");
+const { ticketListsData, discountsData } = require("./constantData");
 
 webServer.use(express.json());
 webServer.use(cors());
